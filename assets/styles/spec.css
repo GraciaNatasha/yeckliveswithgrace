@@ -1,0 +1,2706 @@
+:root {
+    /* Font Size */
+    --fs-title: clamp(35px, 3.75vw, 45px);          /* Judul */
+    --fs-sub-title: clamp(32px, 2.5vw, 34px);       /* Sub Judul */
+    --fs-content: clamp(30px, 2.25vw, 30px);        /* Konten */
+    --fs-cover: clamp(40px, 4vw, 33px);             /* Cover */
+    --fs-couple: clamp(35px, 3.5vw, 50px);          /* Couple */
+    --fs-greeting: clamp(35px, 3.75vw, 55px);       /* Greeting */
+    --fs-save-date: clamp(35px, 3.5vw, 55px);       /* Save the Date */
+    --fs-main-date: clamp(50px, 4vw, 60px);         /* Main Date */
+    --fs-activity-name: clamp(35px, 2.75vw, 40px);  /* Activity Name */
+}
+
+body {
+    /* Body Height */
+    --body-height: 100vh;
+
+    /* Color */
+    --font-clr: #464646;
+    --rgb-font-clr: 70, 70, 70;
+
+    overflow: hidden;
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body font {
+    font-family: inherit;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+/* Top Cover */
+.top-cover {
+    background-color: var(--secondary-clr);
+    width: 100%;
+    /* height: 100vh; */
+    height: var(--body-height);
+    /* position: relative; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 9999;
+    overflow: hidden;
+    opacity: 1;
+
+    transition: all 1.8s;
+    transition-timing-function: cubic-bezier(.23,.56,.38,.78);
+    -webkit-transition-timing-function: cubic-bezier(.23,.56,.38,.78);
+    -moz-transition-timing-function: cubic-bezier(.23,.56,.38,.78);
+    -o-transition-timing-function: cubic-bezier(.23,.56,.38,.78);
+}
+.top-cover.hide {
+    top: -120%;
+    bottom: 120%;
+    pointer-events: none;
+}
+.top-cover .inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+.top-cover .inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+                            to bottom,
+                            rgba(0, 0, 0, 0.2),
+                            rgba(0, 0, 0, 0.4),
+                            rgba(0, 0, 0, 0.2)
+                        );
+}
+.top-cover .inner .details {
+    height: 100%;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    padding: 90px 10px;
+    position: relative;
+}
+.top-cover .inner .details > div {
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding: 10px;
+}
+.top-cover .inner .details .text-01 {
+    text-align: center;
+    font-size: 90px;
+    font-family: var(--caramel);
+    color: var(--font-clr);
+}
+.top-cover .inner .details .text-02 {
+    text-align: center;
+    font-family: var(--segoeui);
+    font-size: 32px;
+    color: var(--font-clr);
+}
+
+.top-cover .inner .details .text-03 {
+    text-align: center;
+    font-family: var(--segoeui-bold);
+    font-size: calc(var(--fs-cover) + 2px);
+    color: var(--font-clr);
+}
+
+.top-cover .inner .details .invitation-btn {
+    position: absolute;
+}
+.top-cover .inner .details .link-01 {
+    font-size: 24px;
+    text-decoration: none;
+    background-color: var(--btn-pink-clr);
+    display: inline-block;
+    padding: 0.5em 0.5em;
+    border-radius: 10px;
+    margin: 0;
+    color: var(--white-clr);
+    font-family: var(--segoeui-bold);
+    box-shadow: -1px 1px 8px rgba(var(--rgb-primary-clr), 1);
+    transition: all 0.35s ease-in-out;
+}
+.top-cover .inner .details .link-01:hover {
+    background-color: var(--btn-pink-shadow-clr);
+    /* color: var(--secondary-clr); */
+}
+.top-cover > .cover-show {
+    width: 100%!important;
+    height: 100%!important;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+.top-cover > .cover-show .slick-list {
+    width: 100%!important;
+    height: 100%!important;
+}
+.top-cover > .cover-show .slick-track {
+    width: 100%!important;
+    height: 100%!important;
+    position: relative!important;
+}
+.top-cover > .cover-show .picture-outer {
+    width: 100%!important;
+    height: 100%!important;
+    position: absolute!important;
+    top: 0!important;
+    left: 0!important;
+}
+.top-cover > .cover-show .picture-outer img {
+    width: 100%!important;
+    height: 100%!important;
+    object-fit: cover;
+    -o-object-fit: cover;
+    object-position: center;
+    animation: zoom-in-zoom-out 30s ease infinite;
+    background-image: var(--bg-opening);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes zoom-out {
+    0% {
+        transform: scale(1);
+        object-position: top;
+    }
+    70% {
+        transform: scale(1.4);
+        object-position: center;
+    }
+    100% {
+        transform: scale(1);
+        object-position: top;
+    }
+}
+
+/* COVER */
+.cover {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--secondary-clr);
+    background-image: var(--bg-knot);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.cover .cover-inner {
+    position: relative;
+    width: 100%;
+    padding: 20px 0px 30px 0px;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+/* Cover Greet */
+.cover .cover-inner .cover-greet {
+    padding: 10px;
+    width: 80%;
+    text-align: center;
+    /* background-color: lightsalmon; */
+}
+.cover .cover-inner .cover-greet .orn.orn-01 {
+    width: 250px;
+    height: 60px;
+    display: block;
+    margin: 0 auto;
+    background-image: var(--orn-01);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-bottom: 20px;
+    /* background-color: lightblue; */
+}
+/* Cover Picture */
+.cover .cover-inner .cover-picture {
+    margin: 40px 0;
+    padding: 0px;
+    position: relative;
+    /* background-color: lightgreen; */
+}
+.cover .cover-inner .cover-picture .cover-show {
+    width: 1024px;
+    height: 530px;
+    position: relative;
+}
+.cover .cover-inner .cover-picture .cover-show::before {
+    content: '';
+    width: 105%;
+    height: 112%;
+    position: absolute;
+    z-index: 99;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.cover .cover-inner .cover-picture .cover-show .picture-outer {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.cover .cover-inner .cover-picture .cover-show .picture-outer .picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 25%;
+}
+
+/* Cover BrideGroom */
+.cover .cover-inner .cover-bridegroom {
+    padding: 10px;
+    text-align: center;
+    /* background-color: lightblue; */
+    width: 100%;
+}
+.cover .cover-inner .cover-bridegroom .text-01,
+.cover .cover-inner .cover-bridegroom .text-02 {
+    font-size: 36px;
+    line-height: 30px;
+    letter-spacing: 2px;
+    color: var(--font-clr);
+}
+.cover .cover-inner .cover-bridegroom .text-02 sup {
+    font-size: 12px;
+}
+.cover .cover-inner .title-01 {
+    font-size: 70px;
+    color: var(--wood-clr);
+    font-family: var(--caramel);
+    margin: .15em 0 .1em 0;
+}
+.cover .cover-inner .cover-greet .text-01 {
+    font-size: 30px;
+    display: inline-block;
+    color: var(--wood-clr);
+    font-family: "Philosopher", Sans-serif;
+}
+
+/* Greetings */
+.greetings {
+    background: var(--wood-clr);
+    padding: 20px 0;
+}
+.greetings .orn.orn-02 {
+    height: 100px;
+    background-image: var(--orn-02);
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 0px auto;
+    display: block;
+}
+.greetings > div {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+.greetings .title-01 {
+    font-size: 30px;
+    font-family: var(--segoeui);
+    color: var(--white-clr);
+    position: relative;
+    margin-bottom: 0.15em;
+}
+.greetings .text-01 {
+    font-size: calc(var(--fs-sub-title) - 2px);
+    font-family: var(--segoeui);
+    color: var(--white-clr);
+    /* line-height: 30px; */
+    letter-spacing: 1px;
+}
+
+/* BRIDEGROOM */
+section.bridegroom {
+    background: #fff;
+    width: 100%;
+    padding: 20px 0px 60px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+section.bridegroom .bridegroom-inner {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+/*
+    position: relative;
+    background-image: var(--bg-cover-bride-groom);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;*/
+}
+/* HEAD */
+section.bridegroom .bridegroom-inner .head {
+    width: 960px;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+section.bridegroom .bridegroom-inner .head .text-01 {
+    font-size: 25px;
+    line-height: 34px;
+    font-family: var(--segoeui);
+    color: var(--wood-clr);
+}
+
+/* BODY */
+.bridegroom .bridegroom-inner .body {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+    padding: 20px;
+}
+.bridegroom .bridegroom-inner .body .groom,
+.bridegroom .bridegroom-inner .body .bride {
+    width: 720px;
+    overflow: hidden;
+}
+.bridegroom .bridegroom-inner .body .bridegroom-border {
+    padding: 20px 20px 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.bridegroom .bridegroom-inner .body .bridegroom-border::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    width: 358px;
+    height: 464px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.bridegroom .bridegroom-inner .body .bride .bridegroom-border::before {
+    background-image: var(--bg-bride);
+    top: 52%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+}
+.bridegroom .bridegroom-inner .body .groom .bridegroom-border::before {
+    background-image: var(--bg-groom);
+    top: 52.5%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+}
+.bridegroom .bridegroom-inner .body .bridegroom-border .bridegroom-picture {
+    width: 358px;
+    height: 464px;
+    object-fit: cover;
+    object-position: center;
+    border-top-left-radius: 200px;
+    border-top-right-radius: 200px;
+    position: relative;
+    z-index: 10;
+}
+/* Separator */
+.bridegroom .bridegroom-inner .body .bridegroom-separator {
+    padding: 20px;
+    font-size: 100px;
+    font-weight: 500;
+    color: var(--wood-clr);
+    font-family: var(--caramel);
+    margin: 20px;
+}
+/* Details */
+.bridegroom .bridegroom-inner .body .bridegroom-details {
+    padding: 10px;
+    text-align: center;
+}
+.bridegroom .bridegroom-inner .body .bridegroom-details .title-01 {
+    font-size: 35px;
+    line-height: 50px;
+    margin-bottom: 20px;
+    color: var(--wood-clr);
+    font-family: var(--caramel);
+    letter-spacing: 1px;
+}
+.bridegroom .bridegroom-inner .body .bridegroom-details .text-01 {
+    font-family: var(--segoeui);
+    font-size: 20px;
+    letter-spacing: -1.5px;
+    color: var(--wood-clr);
+}
+.bridegroom .bridegroom-inner .body .bridegroom-details .text-02 {
+    font-family: var(--segoeui-bold);
+    font-size: 22px;
+    letter-spacing: -1px;
+    color: var(--wood-clr);
+    margin: 10px 0;
+}
+.bridegroom .bridegroom-inner .body .bridegroom-details .link-01 {
+    text-decoration: none;
+    font-family: var(--segoeui);
+    font-size: 16px;
+    color: var(--wood-clr);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+.bridegroom .bridegroom-inner .body .bridegroom-details .link-01:hover {
+    text-decoration: underline;
+}
+.bridegroom .bridegroom-inner .body .bridegroom-details .link-01 i {
+    font-size: 14px;
+    margin-right: 8px;
+}
+
+
+
+
+/* SAVE THE DATE */
+section.save-date {
+    height: 100%;
+    width: 100%;
+    background-image: var(--bg-countdown);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    overflow: hidden;
+}
+section.save-date .inner {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    padding: 20px 0;
+    height: 100%;
+}
+/* HEAD */
+section.save-date .inner .head {
+    padding: 20px;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+}
+section.save-date .inner .head .title-01 {
+    font-family: var(--caramel);
+    font-size: 72px;
+    color: var(--secondary-dark-clr);
+}
+section.save-date .inner .head .text-01 {
+    font-size: 32px;
+    line-height: 28px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--font-clr);
+}
+section.save-date .inner .head .text-01 sup {
+    font-size: 12px;
+}
+/* BODY */
+section.save-date .inner .body {
+    background: transparent;
+}
+/* SCHEDULE */
+section.save-date .inner .body .schedule {
+    width: 100%;
+    position: relative;
+}
+section.save-date .inner .body .schedule .countdown {
+    width: 100%;
+    display: flex;
+    padding: 0px 20px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+section.save-date .inner .body .schedule .countdown .countdown-time {
+    width: 100px;
+    height: 120px;
+    background-image: var(--orn-03);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 5px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+section.save-date .inner .body .schedule .countdown .countdown-time h1 {
+    font-family: var(--cinzel);
+    font-size: 45px;
+    line-height: 50px;
+    color: var(--font-clr);
+}
+section.save-date .inner .body .schedule .countdown .countdown-time small {
+    font-family: var(--segoeui);
+    font-size: 18px;
+    letter-spacing: -1px;
+    color: var(--font-clr);
+}
+section.save-date .inner .foot {
+    padding: 20px 0;
+    display: block;
+    text-align: center;
+}
+section.save-date .inner .foot .link-01 {
+    background: #fff;
+    color: var(--font-clr-rev);
+    font-size: 32px;
+    line-height: 28px;
+    letter-spacing: 1px;
+    border: none;
+    outline: none;
+    padding: 10px 32px;
+    border-radius: 7px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 auto;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.25s ease-in-out;
+}
+body.toska section.save-date .inner .foot .link-01 {
+    color: var(--olive-clr);
+}
+section.save-date .inner .foot .link-01:hover {
+    background: var(--rg-clr);
+    color: var(--white-clr);
+}
+body.toska section.save-date .inner .foot .link-01:hover {
+    color: var(--white-clr);
+}
+
+/* LOVE STORY */
+.love-story {
+    padding: 50px;
+    background: var(--secondary-dark-clr);
+    overflow: hidden;
+}
+.love-story .inner {
+    width: 1399px;
+    margin: 0 auto;
+    display: block;
+    /* background-color: lightcoral; */
+}
+.love-story .inner .title {
+    padding: 10px;
+    text-align: center;
+    overflow: hidden;
+    /* background-color: lightblue; */
+}
+.love-story .inner .title h1 {
+    font-size: 72px;
+    color: var(--font-clr);
+    display: inline-block;
+    position: relative;
+    font-family: var(--caramel);
+    /* background-color: lightgreen; */
+}
+.love-story .inner .title h1::before,
+.love-story .inner .title h1::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 170px;
+    height: 60px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.love-story .inner .timeline {
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.love-story .inner .timeline .story {
+    line-height: normal;
+    position: relative;
+    padding: 20px 40px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.love-story .inner .timeline .story:nth-child(odd) {
+    flex-direction: row;
+    text-align: left;
+}
+.love-story .inner .timeline .story:nth-child(even) {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+.love-story .inner .timeline .story .picture {
+    max-width: 100%;
+    border-radius: 22px;
+    overflow: hidden;
+}
+.love-story .inner .timeline .story .picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    margin: 0 auto;
+    border-radius: 22px;
+}
+.love-story .inner .timeline .story:nth-of-type(1) .picture img {
+    object-position: top;
+}
+.love-story .inner .timeline .story:nth-of-type(2) .picture img {
+    object-position: center;
+}
+.love-story .inner .timeline .story:nth-of-type(3) .picture img {
+    object-position: center;
+}
+.love-story .inner .timeline .story:nth-of-type(4) .picture img {
+    object-position: 50% 28%;
+}
+.love-story .inner .timeline .story .content {
+    width: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: transparent;
+}
+.love-story .inner .timeline .story:nth-child(odd) .content .content-inner {
+    background-color: var(--tertiary-clr);
+    border-top-left-radius: 32px;
+    border-top-right-radius: 44px;
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 64px;
+}
+.love-story .inner .timeline .story:nth-child(even) .content .content-inner {
+    background-color: var(--primary-dark-clr);
+    border-radius: 22px;
+}
+.love-story .inner .timeline .story .content .content-inner {
+    padding: 40px 30px;
+    /* background-color: lightslategray; */
+}
+.love-story .inner .timeline .story .content .content-inner h2 {
+    margin-bottom: .25em;
+    font-size: 40px;
+    line-height: 45px;
+    color: var(--olive-clr);
+    font-family: var(--segoeui-bold);
+}
+.love-story .inner .timeline .story .content .content-inner p {
+    line-height: 28px;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: var(--olive-clr);
+    font-family: var(--segoeui);
+}
+.love-story .inner .timeline .story:nth-child(even) .content .content-inner h2,
+.love-story .inner .timeline .story:nth-child(even) .content .content-inner p {
+    color: var(--wood-clr);
+}
+
+/* GALLERY */
+#lightGallery {
+    width: 100%;
+    max-height: 600px;
+    overflow-y: auto;
+}
+.gallery-wrapper {
+    background-color: #fff;
+    padding: 0;
+}
+section.gallery {
+    background-color: transparent;
+    padding: 0px;
+}
+section.video-gallery {
+    background-color: transparent;
+    margin-bottom: 50px;
+}
+section.video-gallery,
+section.video-gallery .inner,
+section.video-gallery .inner .video-outer {
+    padding: 0;
+}
+.video-gallery .inner .video-outer .video > .title h2 {
+    padding: 0;
+    text-align: center;
+    font-size: 40px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    line-height: 36px;
+    color: var(--olive-clr);
+}
+
+
+
+/* EVENT */
+.event-outer {
+    width: 100%;
+    position: relative;
+    background-image: var(--bg-cover);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.event-outer .event-inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px 10px 70px 10px;
+}
+.event-outer .event-inner .orn.orn-06 {
+    width: 771px;
+    height: 70px;
+    background-image: var(--orn-06);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 10px auto 10px auto;
+    display: block;
+}
+.event-outer .event-inner .orn.orn-07 {
+    width: 512px;
+    height: 50px;
+    background-image: var(--orn-07);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 10px auto;
+    display: block;
+}
+.event-outer .event-inner .head {
+    padding: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.event-outer .event-inner .head::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--bg-event);
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.event-outer .event-inner .head > .title {
+    width: 960px;
+    text-align: center;
+    padding: 10px;
+    margin: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    z-index: 3;
+}
+.event-outer .event-inner .head > .title h1 {
+    font-size: 72px;
+    line-height: 60px;
+    letter-spacing: 2px;
+    margin-bottom: .15em;
+    font-family: var(--caramel);
+    color: var(--olive-clr);
+}
+.event-outer .event-inner .head > .title p {
+    font-size: 34px;
+    line-height: 24px;
+    font-style: italic;
+    color: var(--font-clr);
+}
+.event-inner .event {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.event-inner .event > .title {
+    padding: 10px;
+    width: 640px;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+}
+.event-inner .event > .title h1 {
+    color: var(--olive-clr);
+    font-size: 40px;
+    letter-spacing: 3px;
+    font-family: var(--segoeui);
+}
+.event-inner .event > .title p {
+    font-size: 40px;
+    line-height: 50px;
+    font-weight: 600;
+    color: var(--olive-clr);
+    font-family: var(--segoeui);
+}
+.event-inner .event > .title p > sup {
+    font-size: 12px;
+}
+.event-inner .event > .title::before,
+.event-inner .event > .title::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.event-inner .event > .title::before {
+    top: 0;
+}
+.event-inner .event > .title::after {
+    bottom: 0;
+}
+.event-outer .event-inner .body {
+    background: transparent;
+}
+.event-outer .event-inner .body .event > .details {
+    width: 640px;
+    margin-top: 10px;
+    padding: 10px;
+    text-align: center;
+}
+.event-outer .event-inner .body .event > .details .address {
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.event-outer .event-inner .body .event > .details .address p {
+    font-size: 16px;
+    margin-bottom: .35em;
+    color: var(--white-clr);
+}
+.event-outer .event-inner .body .event > .details a {
+    display: inline-block;
+    border: 1px solid var(--secondary-clr);
+    color: var(--secondary-clr);
+    padding: 7px 18px;
+    margin: 0 auto;
+    text-decoration: none;
+    border-radius: 7px;
+    font-size: 14px;
+    transition: all 0.2s ease-in-out;
+}
+.event-outer .event-inner .body .event > .details a:hover {
+    background: var(--secondary-clr);
+    color: var(--primary-clr);
+}
+.event-inner .event .activities {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.event-inner .event .activities .activity {
+    border-radius: 7px;
+    width: 485px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 20px;
+    padding: 10px 0px;
+}
+.event-inner .event .activities .activity span {
+    font-size: 44px;
+    margin-bottom: 0.2em;
+    color: var(--wood-clr);
+}
+.event-inner .event .activities .activity .title {
+    text-align: center;
+    margin-bottom: 10px;
+}
+.event-inner .event .activities .activity .title .orn.orn-party {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 15px auto;
+}
+.event-inner .event .activities .activity .title h1 {
+    font-size: 30px;
+    line-height: 45px;
+    font-weight: 600;
+    color: var(--olive-clr);
+    font-family: "Philosopher", Sans-serif;
+    margin-bottom: 20px;
+}
+.event-inner .event .activities .activity .title p {
+    font-size: 25px;
+    line-height: 30px;
+    color: var(--olive-clr);
+    font-family: var(--segoeui-bold);
+}
+.event-inner .event .activities .activity .address {
+    text-align: center;
+}
+.event-inner .event .activities .activity .address p {
+    margin-bottom: .2em;
+    font-size: 26px;
+    line-height: 32px;
+    color: var(--olive-clr);
+    font-family: var(--segoeuibold);
+}
+.event-inner .event .activities .activity .address p:first-child {
+    margin-bottom: .75em;
+}
+.event-inner .event .activities .activity a {
+    background: var(--btn-pink-clr);
+    color: var(--white-clr);
+    padding: 7px 18px;
+    text-decoration: none;
+    border-radius: 7px;
+    font-size: 32px;
+    line-height: 28px;
+    margin: 15px auto;
+    display: inline-block;
+    transition: all 0.2s ease-in-out;
+}
+.event-inner .event .activities .activity a:hover,
+.event-inner .event .activities .activity a:focus {
+    background: var(--btn-pink-shadow-clr);
+    border-color: var(--olive-clr);
+    color: var(--white-clr);
+}
+
+
+/* ====================================================
+    Live Streaming
+==================================================== */
+section.live-streaming {
+    padding: 50px 20px 20px 20px;
+    /*background-color: var(--tertiary-clr);*/
+    background-image: var(--bg-general);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+/* Live Streaming > Inner */
+section.live-streaming > .inner {
+    background-color: transparent;
+}
+/* Live Streaming > Inner > Title */
+section.live-streaming > .inner > .title {
+    margin-bottom: 10px;
+    text-align: center;
+}
+section.live-streaming > .inner > .title > h1 {
+    font-family: var(--caramel);
+    font-size: 72px;
+    line-height: 44px;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    color: var(--olive-clr);
+}
+/* Live Streaming > Inner > Body */
+section.live-streaming > .inner > .body {
+    background-color: transparent;
+}
+section.live-streaming > .inner > .body > .preview {
+    position: relative;
+    width: 100%;
+    height: 560px;
+}
+section.live-streaming > .inner > .body > .preview > img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+section.live-streaming > .inner > .body > .preview > .play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    font-size: 40px;
+    cursor: pointer;
+    background-color: #ffffff;
+    opacity: 0.6;
+    color: var(--primary-clr);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease-in-out;
+}
+section.live-streaming > .inner > .body > .preview > .play-btn:hover {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Gift */
+section.gift {
+    padding: 20px 20px 20px 20px;
+    background-image: var(--bg-general);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: var(--segoeui-bold);
+}
+.gift .gift-inner {
+    width: 700px;
+}
+.gift .gift-inner .gift-form {
+    width: 640px;
+    display: block;
+    margin: 0 auto;
+}
+.gift-form .bank-detail {
+    padding: 10px;
+}
+section.gift .bank-detail .saving-books {
+    margin-bottom: 0;
+}
+section.gift .bank-detail .saving-books .book {
+    padding: 20px;
+}
+section.gift .gift-inner .gift-title h1 {
+    font-family: var(--caramel);
+    font-size: 48px;
+    line-height: 52px;
+    letter-spacing: 1px;
+    margin-bottom: 0.25em;
+    color: var(--wood-clr);
+}
+section.gift .gift-inner .gift-title p {
+    font-size: 30px;
+    font-family: var(--segoeui);
+    line-height: 32px;
+    color: var(--wood-clr);
+}
+section.gift .gift-inner .gift-form {
+    box-shadow: none;
+}
+section.gift .bank-detail .saving-books .book p,
+section.gift .bank-detail .saving-books .book span {
+    font-size: 32px;
+    line-height: 28px;
+    letter-spacing: 1px;
+    color: var(--wood-clr);
+}
+.bank-detail .saving-books .copy-account {
+    border: .5px solid var(--wood-clr);
+}
+.bank-detail .saving-books .copy-account:hover {
+    background: var(--wood-clr);
+    color: var(--white-clr);
+}
+
+.gift .gift-inner .gift-form .gift-submit,
+.gift .gift-inner .gift-form .gift-next {
+    background: var(--wood-clr);
+    color: var(--white-clr);
+    font-weight: 600;
+}
+.gift .gift-inner .gift-form .gift-submit:hover,
+.gift .gift-inner .gift-form .gift-next:hover {
+    background: var(--wood-clr);
+}
+
+#gift-btn {
+    border: 1px solid var(--btn-pink-clr);
+    background-color: var(--btn-pink-clr);
+    color: var(--font-clr);
+    padding: 7px 18px;
+    text-decoration: none;
+    border-radius: 7px;
+    font-size: 32px;
+    line-height: 28px;
+    margin: 15px auto;
+    display: inline-block;
+    transition: all 0.2s ease-in-out;
+}
+
+#gift-btn:hover {
+    background-color: var(--btn-pink-shadow-clr);
+    color: var(--font-clr);
+    padding: 7px 18px;
+}
+
+#gift-form p,
+#gift-form span,
+#gift-form label,
+#gift-form input,
+#gift-form textarea,
+#gift-form div,
+#gift-form button {
+    font-size: 24px;
+    letter-spacing: 1px;
+    line-height: 28px;
+}
+#gift-form label.center {
+    font-size: 26px;
+}
+
+/* PROTOCOL */
+.protocol {
+    background: transparent;
+}
+.protocol .inner {
+    overflow: hidden;
+    max-height: 1000px;
+}
+.protocol .inner .head {
+    background: var(--primary-clr);
+    padding: 20px;
+}
+.protocol .inner .head .picture {
+    width: 100%;
+    height: 106px;
+}
+.protocol .inner .head .picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+.protocol .inner .body .picture {
+    width: 100%;
+    max-height: 900px;
+    position: relative;
+    overflow: hidden;
+}
+.protocol .inner .body .picture .bg {
+    width: 100%;
+    background-position: cover;
+}
+.protocol .inner .body .picture img.covid {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 5px;
+}
+.protocol .inner .body .picture div.covid {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 20px;
+    color: var(--font-clr);
+    font-family: var(--segoeui-bold);
+    text-align: center;
+    vertical-align: center;
+    font-size: 18px;
+}
+
+.protocol .inner .body .picture div.covid-1 {
+    top: 15%;
+    left: 32%;
+    padding: 15px 18px 45px 18px;
+}
+
+.protocol .inner .body .picture div.covid-2 {
+    top: 15%;
+    left: 50%;
+    padding: 15px 25px 50px 25px;
+}
+
+.protocol .inner .body .picture div.covid-3 {
+    top: 55%;
+    left: 32%;
+    padding: 15px 15px 50px 15px;
+}
+
+.protocol .inner .body .picture div.covid-4 {
+    top: 55%;
+    left: 50%;
+    padding: 15px 15px 50px 15px;
+}
+
+.protocol .inner .body .picture div.covid-5 {
+    display: none;
+}
+
+/* COMMENT */
+.comment-outer .comment-inner .head  {
+    margin-bottom: 0;
+}
+.comment-outer .comment-inner h1 {
+    font-family: var(--caramel);
+    font-size: 48px;
+    line-height: 50px;
+    letter-spacing: 1px;
+    color: var(--wood-clr);
+    margin-bottom: 0;
+}
+.comment-outer .comment-inner .comments .comment .comment-head p > strong {
+    font-family: var(--segoeui);
+    font-size: 26px;
+    letter-spacing: 0.5px;
+}
+.comment-outer .comment-inner .comments .comment .comment-head p i {
+    font-size: 18px;
+}
+.comment-outer .comment-inner .comments .comment p {
+    font-family: var(--segoeui);
+    font-size: 22px;
+}
+.comment-outer .comment-inner .comments .comment small {
+    font-family: var(--segoeui);
+    font-size: 14px;
+}
+.comment-outer .comment-inner .comments .comment small sup {
+    font-size: 8px;
+}
+
+.comment-outer .comment-inner .comments {
+    max-height: 350px;
+    overflow-y: scroll;
+}
+
+.comment-outer .comment-inner .comment-form input {
+    font-size: 24px;
+    line-height: 18px;
+    letter-spacing: 1px;
+}
+.comment-outer .comment-inner .comment-form textarea {
+    font-size: 24px;
+    line-height: 18px;
+    letter-spacing: 1px;
+}
+.comment-outer .comment-inner .comment-form button,
+.comment-outer .comment-inner .foot #send-comment {
+    font-size: 24px;
+    line-height: 18px;
+    background-color: var(--wood-clr);
+    width: 100%;
+    margin: 0;
+}
+.comment-outer .comment-inner .comment-form button:hover,
+.comment-outer .comment-inner .foot #send-comment:hover {
+    background: var(--primary-clr);
+}
+.comment-outer .comment-inner .foot {
+    padding: 10px;
+}
+.comment-outer .comment-inner .foot #send-comment > i {
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+/* FORM CONTROL */
+.form-control:focus, .form-control:active {
+    background: #fff;
+    box-shadow: 0 0 2px var(--primary-dark-clr);
+    border: 1px solid var(--primary-dark-clr);
+}
+
+/* Wrapper */
+.quote-wrapper {
+    background-image: var(--bg-footer);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 200px 0 550px;
+    position: relative;
+    color: var(--white-clr);
+}
+
+/* QUOTE */
+section.quote {
+    width: 100%;
+    padding: 10px;
+    position: relative;
+    z-index: 1;
+}
+section.quote .inner {
+    width: 720px;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+}
+section.quote .inner p.text-01,
+section.quote .inner p.text-02 {
+    font-family: var(--cinzel);
+    font-size: 32px;
+    line-height: 28px;
+    letter-spacing: 2px;
+    margin-bottom: 1em;
+    font-weight: 600;
+}
+section.quote .inner p.text-02 {
+    margin-bottom: 0;
+    font-size: 28px;
+    letter-spacing: 1px;
+    font-style: italic;
+}
+
+/* FOOTNOTE */
+section.footnote {
+    background-image: var(--bg-footer-overlay);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10px;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    z-index: 1;
+}
+section.footnote .inner {
+    width: 720px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+section.footnote .inner p {
+    font-size: 24px;
+    font-family: var(--segoeui);
+}
+section.footnote .inner p sup {
+    font-size: 14px;
+}
+section.footnote .inner h1 {
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 50px;
+    margin: 15px 0px;
+    font-family: var(--caramel);
+}
+
+/* =====================================
+
+    RESPONSIVE SCREEN
+
+   =====================================*/
+
+/* =====================================
+    1500px
+   =====================================*/
+@media only screen and (max-width: 1500px) {
+    /* LOVE STORY */
+    .love-story {
+        padding: 0px;
+    }
+    .love-story .inner {
+        width: 100%;
+    }
+    .love-story .inner .title {
+        padding: 30px 0px 20px 0;
+    }
+    .love-story .inner .timeline .story {
+        padding: 20px 20px 70px 20px;
+    }
+
+}
+
+/* =====================================
+    1124px
+   =====================================*/
+@media only screen and (max-width: 1124px) {
+    .top-cover .inner .details .text-01 {
+        font-size: 70px;
+    }
+    .cover .cover-inner .cover-picture .cover-show {
+        width: 85vw;
+    }
+
+    section.quote .inner p.text-01,
+    section.quote .inner p.text-02 {
+        font-size: 22px;
+        line-height: 22px;
+    }
+    section.quote .inner p.text-02 {
+        font-size: 20px;
+        line-height: 20px;
+        letter-spacing: 1px;
+    }
+
+    section.quote .inner {
+        padding: 0px 20px;
+    }
+    section.footnote .inner h1 {
+        font-size: 38px;
+        line-height: 36px;
+        margin: 10px 0px;
+        color: var(--wood-clr) !important;
+        font-weight: 900;
+    }
+
+
+    section.footnote .inner p {
+        font-size: 20px;
+    }
+    .footer-date {
+        color: var(--wood-clr);
+        font-weight: 900;
+    }
+    section.footnote .inner p sup {
+        font-size: 10px;
+    }
+
+}
+
+/* =====================================
+    Minimum Desktop Screen
+    1024px 768px
+   =====================================*/
+@media only screen and (max-width: 1024px) {
+
+    /* Cover */
+    .cover .cover-inner .cover-greet .orn.orn-01 {
+        width: 250px;
+        height: 50px;
+        /* margin-bottom: 5px; */
+    }
+    .cover .cover-inner .cover-greet .text-01 {
+        font-size: 25px;
+        line-height: 22px;
+        letter-spacing: 0.5px;
+    }
+    .cover .cover-inner .cover-picture {
+        margin: 20px auto;
+    }
+    .cover .cover-inner .cover-picture .cover-show {
+        height: 440px;
+    }
+    .cover .cover-inner .cover-picture .cover-show::before {
+        height: 105%;
+    }
+    .cover .cover-inner .cover-bridegroom .text-01,
+    .cover .cover-inner .cover-bridegroom .text-02 {
+        font-size: 28px;
+        line-height: 24px;
+        letter-spacing: 2px;
+    }
+    .cover .cover-inner .cover-bridegroom .text-02 sup {
+        font-size: 8px;
+    }
+    .cover .cover-inner .title-01 {
+        font-size: 55px;
+    }
+
+    /* Greetings */
+    .greetings .orn.orn-02 {
+        height: 80px;
+    }
+    /* BrideGroom */
+    section.bridegroom .bridegroom-inner {
+        padding: 0px;
+    }
+    section.bridegroom .bridegroom-inner .head {
+        width: 100%;
+    }
+    .bridegroom .bridegroom-inner .body {
+        flex-direction: column-reverse;
+    }
+    .bridegroom .bridegroom-inner .body .bridegroom-border::before {
+        width: 300px;
+        height: 380px;
+    }
+    .bridegroom .bridegroom-inner .body .bridegroom-border .bridegroom-picture {
+        width: 300px;
+        height: 380px;
+    }
+    .bridegroom .bridegroom-inner .body .bridegroom-separator {
+        font-size: 70px;
+    }
+    section.save-date .inner .body .schedule .countdown .countdown-time h1 {
+        font-size: 30px;
+        line-height: 26px;
+    }
+    section.save-date .inner .body .schedule .countdown .countdown-time {
+        height: 80px;
+    }
+    /* LOVE STORY */
+    .love-story .inner .timeline .story {
+        padding: 20px;
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .love-story .inner .timeline .story:nth-child(odd) {
+        flex-direction: column;
+        text-align: left;
+    }
+    .love-story .inner .timeline .story:nth-child(even) {
+        flex-direction: column;
+        text-align: right;
+    }
+    .love-story .inner .timeline .story .picture {
+        height: 450px;
+        position: relative;
+        z-index: 1;
+    }
+    .love-story .inner .timeline .story .picture img {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+    .love-story .inner .timeline .story .content {
+        width: 100%;
+    }
+    .love-story .inner .timeline .story .content .content-inner {
+        padding: 130px 40px 40px 40px;
+    }
+
+
+    /* PROTOCOL */
+    .protocol .inner .head {
+        padding: 20px;
+    }
+    .protocol .inner .head .picture {
+        height: auto;
+    }
+    .protocol .inner .body .picture {
+        height: auto;
+    }
+    .protocol .inner .body .picture div.covid {
+        width: 120px;
+        height: 120px;
+        border-radius: 10px;
+        padding: 10px 10px 20px 10px;
+        font-size: 12px;
+    }
+    .protocol .inner .body .picture div.covid-1 {
+        top: 15%;
+        left: 32%;
+        padding: 15px 18px 45px 18px;
+    }
+
+    .protocol .inner .body .picture div.covid-2 {
+        top: 15%;
+        left: 50%;
+        padding: 15px 22px 40px 22px;
+    }
+
+    .protocol .inner .body .picture div.covid-3 {
+        top: 55%;
+        left: 32%;
+        padding: 15px 15px 50px 15px;
+    }
+
+    .protocol .inner .body .picture div.covid-4 {
+        top: 55%;
+        left: 50%;
+        padding: 15px 15px 50px 15px;
+    }
+    /* Wrapper */
+    .quote-wrapper {
+        padding: 120px 0px 420px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    /* cover */
+    .top-cover .inner .details .text-01 {
+        font-size: 60px;
+    }
+
+    .cover .cover-inner .cover-greet .text-01 {
+        font-size: 22px;
+        line-height: 20px;
+        letter-spacing: 0.5px;
+    }
+
+    .top-cover > .cover-show .picture-outer img {
+        background-image: var(--bg-opening-mobile);
+    }
+    .top-cover .inner .details {
+        width: 100%;
+        padding: 20px 10px;
+    }
+    section.live-streaming > .inner > .body > .preview {
+        height: 360px;
+    }
+    /* greetings */
+    .greetings .text-01 {
+        font-size: 24px;
+    }
+
+    .top-cover .inner {
+        align-items: center;
+    }
+
+    /* BrideGroom */
+    .bridegroom .bridegroom-inner .body {
+        padding: 0;
+    }
+    .bridegroom .bridegroom-inner .body .groom,
+    .bridegroom .bridegroom-inner .body .bride {
+        width: 100%;
+    }
+    .bridegroom .bridegroom-inner .body .bridegroom-separator {
+        margin: 0;
+    }
+
+    /* Event */
+    .event-outer .event-inner .orn.orn-06 {
+        width: 80%;
+    }
+    .event-outer .event-inner .orn.orn-07 {
+        width: 70%;
+    }
+    .event-outer .event-inner .head > .title {
+        width: 100%;
+    }
+    .event-inner .event > .title {
+        width: 100%;
+    }
+
+    /* Save The Date */
+    section.save-date .inner {
+        width: 100%;
+    }
+    section.save-date .inner .head .title-01 {
+        font-size: 46px;
+    }
+    section.save-date .inner .foot .link-01 {
+        font-size: 24px;
+        line-height: 22px;
+        padding: 10px;
+    }
+    /* Gift */
+    section.gift .gift-inner .gift-title p {
+        font-size: 22px;
+        line-height: 24px;
+    }
+
+    /* FOOTNOTE & QUOTE */
+    section.footnote .inner,
+    section.quote .inner {
+        width: 100%;
+    }
+
+    section#start {
+        height: 70%;
+    }
+
+    section#start {
+        height: 70%;
+    }
+
+    section.greetings {
+        height: 30%;
+    }
+
+    section.save-date {
+        height: 350px;
+    }
+
+    section.save-date .inner .body .schedule .countdown .countdown-time {
+        width: 80px;
+        height: 80px;
+        margin: 5px 10px;
+    }
+    section.save-date .inner .body .schedule .countdown .countdown-time h1 {
+        font-size: 30px;
+        line-height: 26px;
+    }
+    section.save-date .inner .body .schedule .countdown .countdown-time small {
+        font-size: 16px;
+        letter-spacing: -0.5px;
+    }
+
+    section.quote .inner p.text-01,
+    section.quote .inner p.text-02 {
+        font-size: 20px;
+        line-height: 20px;
+    }
+    section.quote .inner p.text-02 {
+        font-size: 18px;
+        line-height: 18px;
+        letter-spacing: 1px;
+    }
+
+    .modal-video-close-btn {
+        top: -150px !important;
+        right: 5px !important;
+    }
+}
+/* =====================================
+    720px
+   =====================================*/
+@media only screen and (max-width: 720px) {
+    .top-cover .inner .details .text-01 {
+        font-size: 55px;
+    }
+
+    .greetings .title-01 {
+        font-size: 22px;
+    }
+
+    /* Video */
+    .live-streaming .inner .body {
+        padding: 0;
+        width: 100%;
+    }
+    .live-streaming .inner .body .preview {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Save the Date */
+    section.save-date .inner .body-height .schedule .countdown .countdown-time small {
+        font-size: 14px;
+        letter-spacing: -0.5px;
+    }
+
+    /* Gift */
+    .gift .gift-inner,
+    .gift .gift-inner .gift-form {
+        width: 100%;
+    }
+    /* LAST ORNAMENT */
+    section.last-orn .orn.orn-08 {
+        width: 80vw;
+    }
+
+    section.live-streaming .inner .title h1 {
+        font-size: 32px;
+        line-height: 30px;
+    }
+
+    .protocol .inner .body .picture div.covid {
+        width: 100px;
+        height: 100px;
+        border-radius: 10px;
+        padding: 8px 8px 18px 8px;
+        font-size: 11px;
+    }
+    .protocol .inner .body .picture div.covid-1 {
+        top: 15%;
+        left: 32%;
+        padding: 15px 18px 42px 18px;
+    }
+
+    .protocol .inner .body .picture div.covid-2 {
+        top: 15%;
+        left: 50%;
+        padding: 15px 22px 40px 22px;
+    }
+
+    .protocol .inner .body .picture div.covid-3 {
+        top: 55%;
+        left: 32%;
+        padding: 14px 14px 45px 14px;
+    }
+
+    .protocol .inner .body .picture div.covid-4 {
+        top: 55%;
+        left: 50%;
+        padding: 13px 14px 46px 14px;
+    }
+}
+
+/* =====================================
+    Minimum Tablet Screen
+    600px x 960px
+   =====================================*/
+@media only screen and (max-width: 600px) {
+    /* OPENING */
+    .top-cover .inner .details .invitation-btn {
+        bottom: 15%;
+    }
+    .top-cover .inner .details .text-01 {
+        font-size: 50px;
+    }
+
+    .top-cover .inner .details .text-02 {
+        font-size: 22px;
+    }
+
+    .top-cover .inner .details .text-03 {
+        font-size: 24px;
+    }
+
+    .top-cover .inner .details .link-01 {
+        font-size: 18px;
+    }
+
+    /* COVER */
+    .cover .cover-inner .cover-greet {
+        width: 80%;
+    }
+    .cover .cover-inner .title-01 {
+        font-size: 40px;
+    }
+    .cover .cover-inner .cover-greet .text-01 {
+        font-size: 18px;
+        line-height: 16px;
+        letter-spacing: 0.5px;
+    }
+    .cover {
+        background-image: var(--bg-knot-mobile);
+    }
+    .cover .cover-inner .cover-picture .cover-show {
+        height: 540px;
+    }
+    .cover .cover-inner .cover-picture .cover-show::before {
+        height: 105%;
+    }
+
+    /* greetings */
+    .greetings .orn.orn-02 {
+        height: 70px;
+    }
+    .greetings .text-01 {
+        font-size: 18px;
+    }
+    /* Bride Groom */
+    .bridegroom .bridegroom-inner .body .bridegroom-border::before {
+        width: 250px;
+        height: 320px;
+    }
+    .bridegroom .bridegroom-inner .body .bridegroom-border .bridegroom-picture {
+        width: 250px;
+        height: 320px;
+    }
+
+    /* Bride Groom */
+    section.bridegroom .bridegroom-inner .head .text-01 {
+        font-size: 16px;
+        line-height: 16px;
+    }
+    .bridegroom .bridegroom-inner .body .bridegroom-details .title-01 {
+        font-size: 26px;
+        line-height: 26px;
+        letter-spacing: 1px;
+    }
+    .bridegroom .bridegroom-inner .body .bridegroom-details .text-01 {
+        font-size: 16px;
+        letter-spacing: -1px;
+    }
+    .bridegroom .bridegroom-inner .body .bridegroom-details .text-02 {
+        font-size: 16px;
+        letter-spacing: -1px;
+    }
+    .bridegroom .bridegroom-inner .body .bridegroom-details .link-01 {
+        font-size: 14px;
+        line-height: 14px;
+    }
+    .bridegroom .bridegroom-inner .body .bridegroom-details .link-01 i {
+        font-size: 14px;
+    }
+
+    /* Save The Date */
+    section.save-date .inner .head .title-01 {
+        font-size: 36px;
+        letter-spacing: 1px;
+    }
+    section.save-date .inner .head .text-01 {
+        font-size: 22px;
+        line-height: 22px;
+        letter-spacing: 1px;
+    }
+    section.save-date .inner .head .text-01 sup {
+        font-size: 9px;
+    }
+    section.save-date .inner .body .schedule::before {
+        height: 30px;
+    }
+    section.save-date .inner .foot .link-01 {
+        font-size: 10px;
+        line-height: 14px;
+        padding: 3px;
+    }
+    section.save-date .inner .head {
+        padding: 0px;
+    }
+    section.save-date .inner .foot {
+        padding: 5px 0;
+    }
+    section.save-date .inner .body .schedule .countdown .countdown-time {
+        width: 60px;
+        height: 40px;
+        margin: 0px 2px;
+    }
+    section.save-date .inner .body .schedule .countdown .countdown-time h1 {
+        font-size: 18px;
+        line-height: 18px;
+    }
+    section.save-date .inner .body .schedule .countdown .countdown-time small {
+        font-size: 8px;
+        letter-spacing: -0.5px;
+    }
+    section.save-date .inner .body .calendar #add-calendar {
+        font-size: 28px;
+        line-height: 24px;
+        letter-spacing: 1px;
+        padding: 8px 24px;
+    }
+
+    /* Love Story */
+    .love-story .inner .title h1 {
+        font-size: 42px;
+    }
+    .love-story .inner .title h1::before,
+    .love-story .inner .title h1::after {
+        top: 50%;
+        width: 80px;
+        height: 40px;
+    }
+    .love-story .inner .timeline .story {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    .love-story .inner .timeline .story .picture {
+        height: 320px;
+    }
+    .love-story .inner .timeline .story .content .content-inner {
+        padding: 130px 20px 30px 20px;
+    }
+    .love-story .inner .timeline .story .content .content-inner h2 {
+        font-size: 25px;
+        line-height: 35px;
+    }
+    .love-story .inner .timeline .story .content .content-inner p {
+        line-height: 22px;
+        font-size: 16px;
+        letter-spacing: 0px;
+    }
+
+    /* Gallery Photo */
+    .video-gallery .inner .video-outer {
+        padding: 20px 10px;
+    }
+    .video-gallery .inner .video-outer .video {
+        width: 100%;
+        margin: 15px;
+    }
+    .video-gallery .inner .video-outer .video .preview {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        position: relative;
+    }
+    .video-gallery .inner .video-outer .video > .title h2 {
+        font-size: 36px;
+        line-height: 30px;
+    }
+
+    #lightGallery {
+        max-height: 450px;
+    }
+
+    /* Live Streaming */
+    section.live-streaming .inner .title h1 {
+        font-size: 28px;
+        line-height: 30px;
+    }
+    section.live-streaming .inner .foot p {
+        font-size: 28px;
+        line-height: 20px;
+    }
+
+    /* Gift */
+    section.gift .gift-inner .gift-title h1 {
+        font-size: 36px;
+        line-height: 30px;
+        margin-bottom: 0.5em;
+    }
+    section.gift .gift-inner .gift-title p {
+        font-size: 18px;
+        line-height: 22px;
+    }
+    section.gift .bank-detail .saving-books .book p,
+    section.gift .bank-detail .saving-books .book span {
+        font-size: 28px;
+        line-height: 20px;
+    }
+    #gift-form p,
+    #gift-form span,
+    #gift-form label,
+    #gift-form input,
+    #gift-form textarea,
+    #gift-form div,
+    #gift-form button {
+        font-size: 16px;
+        line-height: 20px;
+        line-spacing: 0px;
+    }
+    #gift-form label.center {
+        font-size: 20px;
+    }
+
+    #gift-btn {
+        border: 1px solid var(--btn-pink-clr);
+        color: var(--primary-clr);
+        padding: 6px 12px;
+        font-size: 20px;
+        line-height: 22px;
+    }
+
+    /* Event */
+    .event-outer {
+        background-image: var(--bg-cover-mobile);
+    }
+    .event-outer .event-inner {
+        padding: 20px 10px 40px 10px;
+    }
+    .event-outer .event-inner .orn.orn-06 {
+        margin: 10px auto;
+    }
+    .event-outer .event-inner .head {
+        padding: 0;
+    }
+    .event-outer .event-inner .head > .title h1 {
+        font-size: 42px;
+        letter-spacing: 2px;
+        margin-bottom: -0.05em;
+    }
+    .event-outer .event-inner .head > .title p {
+        font-size: 28px;
+        line-height: 20px;
+        letter-spacing: 1px;
+    }
+    .event-inner .event > .title {
+        padding-top: 5px;
+    }
+    .event-inner .event > .title::before,
+    .event-inner .event > .title::after {
+        width: 80%;
+    }
+    .event-inner .event > .title h1 {
+        font-size: 32px;
+        line-height: 36px;
+        letter-spacing: 1.5px;
+        margin-bottom: -0.1em;
+    }
+    .event-inner .event > .title p {
+        font-size: 22px;
+        line-height: 20px;
+    }
+    .event-inner .event > .title p > sup {
+        font-size: 10px;
+    }
+
+
+    .event-inner .event .activities .activity {
+        margin-bottom: 0;
+        width: 100%;
+    }
+    .event-inner .event .activities .activity .title {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .event-inner .event .activities .activity .title h1 {
+        font-size: 26px;
+        line-height: 26px;
+        letter-spacing: 1px;
+    }
+    .event-inner .event .activities .activity .title p {
+        font-size: 20px;
+        line-height: 22px;
+        letter-spacing: 1px;
+    }
+    .event-inner .event .activities .activity .address p {
+        margin-bottom: .2em;
+        font-size: 20px;
+        line-height: 18px;
+    }
+    .event-inner .event .activities .activity .address p:first-child {
+        margin-bottom: .75em;
+    }
+    .event-inner .event .activities .activity a {
+        padding: 6px 14px;
+        font-size: 22px;
+        line-height: 20px;
+    }
+
+    /* Comment */
+    .comment-outer .comment-inner h1 {
+        font-size: 36px;
+        line-height: 30px;
+    }
+    .comment-outer .comment-inner .comments .comment p {
+        font-size: 15px;
+    }
+    .comment-outer .comment-inner .comments .comment .comment-head p > strong {
+        font-size: 16px;
+    }
+    .comment-outer .comment-inner .comments .comment .comment-head p i {
+        font-size: 14px;
+    }
+    .comment-outer .comment-inner .comments .comment small {
+        font-size: 12px;
+    }
+    .comment-outer .comment-inner .comments .comment small sup {
+        font-size: 7px;
+    }
+    .comment-outer .comment-inner .comment-form button,
+    .comment-outer .comment-inner .foot #send-comment {
+        font-size: 20px;
+    }
+    .comment-outer .comment-inner .comments {
+        max-height: 250px;
+        overflow-y: scroll;
+    }
+
+    /* QUOTE */
+    section.quote {
+        padding: 0;
+    }
+    section.quote .inner {
+        padding: 0px 20px;
+    }
+    section.quote .inner p.text-01,
+    section.quote .inner p.text-02 {
+        font-size: 20px;
+        line-height: 20px;
+    }
+    section.quote .inner p.text-02 {
+        font-size: 18px;
+        line-height: 18px;
+        letter-spacing: 1px;
+    }
+
+    /* FOOTNOTE */
+    section.footnote .inner p {
+        font-size: 16px;
+    }
+    .footer-date {
+        color: var(--wood-clr);
+        font-weight: 900;
+    }
+    section.footnote .inner p sup {
+        font-size: 8px;
+    }
+    section.footnote .inner h1 {
+        font-size: 32px;
+        line-height: 36px;
+        margin: 5px 0px;
+        color: var(--wood-clr) !important;
+        font-weight: 900;
+    }
+    /* Wrapper */
+    .quote-wrapper {
+        padding: 90px 0px 220px;
+    }
+    .protocol .inner .body .picture div.covid-1 {
+        top: 60%;
+        left: 2%;
+        padding: 15px 18px 42px 18px;
+    }
+
+    .protocol .inner .body .picture div.covid-2 {
+        top: 60%;
+        left: 27%;
+        padding: 15px 22px 40px 22px;
+    }
+
+    .protocol .inner .body .picture div.covid-3 {
+        top: 60%;
+        left: 52%;
+        padding: 14px 14px 45px 14px;
+    }
+
+    .protocol .inner .body .picture div.covid-4 {
+        top: 60%;
+        left: 77%;
+        padding: 13px 14px 46px 14px;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    section.bridegroom .bridegroom-inner .head .text-01 > br {
+        display: none;
+    }
+
+    .protocol .inner .body .picture div.covid {
+        background-color: rgba(0, 0, 0, 0);
+        width: 85px;
+        height: 80px;
+        border-radius: 10px;
+        padding: 8px 10px 18px 10px;
+        font-size: 11px;
+    }
+
+    .protocol .inner .body .picture div.covid-1 {
+        bottom: 80px;
+        left: 1%;
+        padding: 5px 2px 42px 2px;
+        z-index: 1;
+    }
+
+    .protocol .inner .body .picture div.covid-1 img {
+        width: 80%;
+    }
+
+    .protocol .inner .body .picture div.covid-2 {
+        bottom: 80px;
+        left: 27%;
+        padding: 5px 5px 40px 5px;
+        z-index: 1;
+    }
+
+    .protocol .inner .body .picture div.covid-2 img {
+        width: 58%;
+    }
+
+    .protocol .inner .body .picture div.covid-3 {
+        bottom: 80px;
+        left: 51%;
+        padding: 2px 2px 40px 2px;
+        z-index: 1;
+    }
+
+    .protocol .inner .body .picture div.covid-3 img {
+        width: 88%;
+    }
+
+    .protocol .inner .body .picture div.covid-4 {
+        bottom: 80px;
+        left: 77%;
+        padding: 5px 12px 45px 12px;
+        z-index: 1;
+    }
+
+    .protocol .inner .body .picture div.covid-5 {
+        position: absolute;
+        visibility: visible;
+        display: block;
+        top: 60%;
+        left: 0%;
+        width: 100%;
+        height: 40%;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+    .love-story .inner .timeline .story .picture {
+        height: 280px;
+    }
+}
+
+/* =====================================
+}
+    Minimum Phone Screen
+    360px x 640px
+   =====================================*/
+
+@media only screen and (max-width: 360px) {
+    /* Cover */
+    .cover .cover-inner .cover-greet .orn.orn-01 {
+        width: 200px;
+        height: 40px;
+    }
+    .cover .cover-inner .cover-greet .text-01 {
+        font-size: 14px;
+        line-height: 12px;
+        letter-spacing: 0.5px;
+    }
+    .cover .cover-inner .cover-picture .cover-show {
+        width: 80vw;
+        height: 320px;
+    }
+    .cover .cover-inner .cover-picture .cover-show::before {
+        height: 105%;
+    }
+    .cover .cover-inner .cover-bridegroom .text-01,
+    .cover .cover-inner .cover-bridegroom .text-02 {
+        font-size: 22px;
+        line-height: 20px;
+        letter-spacing: 2px;
+    }
+    .cover .cover-inner .cover-bridegroom .text-02 sup {
+        font-size: 7px;
+    }
+    .cover .cover-inner .title-01 {
+        font-size: 35px;
+    }
+    /* Greetings */
+    .greetings .orn.orn-02 {
+        height: 50px;
+    }
+    .greetings .text-01 {
+        font-size: 16px;
+    }
+
+    /* Bride Groom */
+    section.bridegroom .bridegroom-inner .head .text-01 {
+        font-size: 14px;
+        line-height: 14px;
+    }
+    .bridegroom .bridegroom-inner .body .bridegroom-details .title-01 {
+        font-size: 18px;
+        line-height: 24px;
+        letter-spacing: 1px;
+    }
+    .bridegroom .bridegroom-inner .body .bridegroom-border::before {
+        width: 200px;
+        height: 250px;
+    }
+    .bridegroom .bridegroom-inner .body .bridegroom-border .bridegroom-picture {
+        width: 180px;
+        height: 250px;
+    }
+    .bridegroom .bridegroom-inner .body .bridegroom-details .text-01 {
+        font-size: 12px;
+        letter-spacing: 0px;
+    }
+    .bridegroom .bridegroom-inner .body .bridegroom-details .text-02 {
+        font-size: 12px;
+        letter-spacing: 0px
+    }
+    .bridegroom .bridegroom-inner .body .bridegroom-details .link-01 {
+        font-size: 12px;
+        line-height: 12px;
+    }
+    .bridegroom .bridegroom-inner .body .bridegroom-details .link-01 i {
+        font-size: 12px;
+    }
+
+    /* Save The Date */
+    section.save-date .inner .head .title-01 {
+        font-size: 22px;
+        line-height: 30px;
+        letter-spacing: 1px;
+    }
+    section.save-date .inner .head .text-01 {
+        font-size: 22px;
+        line-height: 18px;
+        letter-spacing: 1px;
+    }
+    section.save-date .inner .head .text-01 sup {
+        font-size: 6px;
+    }
+    section.save-date .inner .body .schedule {
+        padding: 0;
+    }
+    section.save-date .inner .body .schedule::before {
+        height: 30px;
+    }
+    section.save-date .inner .body .schedule .countdown .countdown-time {
+        width: 60px;
+        height: 60px;
+        margin: 0px 2px;
+    }
+    section.save-date .inner .body .schedule .countdown .countdown-time h1 {
+        font-size: 20px;
+        line-height: 28px;
+    }
+    section.save-date .inner .body .schedule .countdown .countdown-time small {
+        font-size: 10px;
+    }
+    section.save-date .inner .body .calendar #add-calendar {
+        font-size: 22px;
+        line-height: 20px;
+        letter-spacing: 1px;
+        padding: 8px 24px;
+    }
+    /* Love Story */
+    .love-story .inner .title h1 {
+        font-size: 30px;
+    }
+    .love-story .inner .title h1::before,
+    .love-story .inner .title h1::after {
+        top: 50%;
+        width: 80px;
+        height: 40px;
+    }
+    .love-story .inner .timeline {
+        /* padding: 0 0 30px 0; */
+    }
+    .love-story .inner .timeline .story {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    .love-story .inner .timeline .story .picture {
+        height: 250px;
+    }
+    .love-story .inner .timeline .story .content .content-inner {
+        padding: 130px 20px 30px 20px;
+    }
+    .love-story .inner .timeline .story .content .content-inner h2 {
+        font-size: 26px;
+        line-height: 30px;
+    }
+    .love-story .inner .timeline .story .content .content-inner p {
+        line-height: 18px;
+        font-size: 13px;
+        letter-spacing: 0px;
+    }
+
+    /* Event */
+    .event-outer .event-inner {
+        padding: 20px 10px 40px 10px;
+    }
+    .event-outer .event-inner .head {
+        padding: 0;
+    }
+    .event-outer .event-inner .head > .title h1 {
+        font-size: 38px;
+        letter-spacing: 2px;
+        margin-bottom: -0.05em;
+    }
+    .event-outer .event-inner .head > .title p {
+        font-size: 24px;
+        line-height: 20px;
+        letter-spacing: 1px;
+    }
+    .event-inner .event > .title {
+        padding-top: 5px;
+    }
+    .event-inner .event > .title::before,
+    .event-inner .event > .title::after {
+        width: 95%;
+    }
+    .event-inner .event > .title h1 {
+        font-size: 28px;
+        line-height: 32px;
+        letter-spacing: 1px;
+        margin-bottom: -0.1em;
+    }
+    .event-inner .event > .title p {
+        font-size: 18px;
+        line-height: 16px;
+    }
+    .event-inner .event > .title p > sup {
+        font-size: 9px;
+    }
+
+
+    .event-inner .event .activities .activity {
+        margin-bottom: 0;
+        width: 100%;
+    }
+    .event-inner .event .activities .activity .title {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .event-inner .event .activities .activity .title h1 {
+        font-size: 22px;
+        line-height: 24px;
+        letter-spacing: 1px;
+    }
+    .event-inner .event .activities .activity .title p {
+        font-size: 18px;
+        line-height: 20px;
+        letter-spacing: 1px;
+    }
+    .event-inner .event .activities .activity .address p {
+        margin-bottom: .2em;
+        font-size: 18px;
+        line-height: 18px;
+    }
+    .event-inner .event .activities .activity .address p:first-child {
+        margin-bottom: .75em;
+    }
+    .event-inner .event .activities .activity a {
+        padding: 5px 12px;
+        font-size: 20px;
+        line-height: 18px;
+    }
+    /* Video */
+    .video-gallery .inner .video-outer .video > .title h2 {
+        font-size: 28px;
+        line-height: 32px;
+    }
+
+    /* Live Streaming */
+    section.live-streaming .inner .title h1 {
+        font-size: 24px;
+        line-height: 28px;
+    }
+    section.live-streaming .inner .foot p {
+        font-size: 24px;
+        line-height: 20px;
+    }
+
+    /* Gift */
+    section.gift .gift-inner .gift-title h1 {
+        font-size: 32px;
+        line-height: 36px;
+        margin-bottom: 0.5em;
+    }
+    section.gift .gift-inner .gift-title p {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    section.gift .bank-detail .saving-books .book p,
+    section.gift .bank-detail .saving-books .book span {
+        font-size: 24px;
+        line-height: 20px;
+    }
+    #gift-form p,
+    #gift-form span,
+    #gift-form label,
+    #gift-form input,
+    #gift-form textarea,
+    #gift-form div,
+    #gift-form button {
+        font-size: 14px;
+        line-height: 14px;
+        line-spacing: 0px;
+    }
+    #gift-form label.center {
+        font-size: 18px;
+    }
+
+    /* Protocol */
+    .protocol .inner .head {
+        padding: 10px;
+    }
+    /* Comment */
+    .comment-outer .comment-inner h1 {
+        font-size: 32px;
+        line-height: 36px;
+    }
+    .comment-outer .comment-inner .comments .comment p {
+        font-size: 13px;
+    }
+    .comment-outer .comment-inner .comments .comment .comment-head p > strong {
+        font-size: 13px;
+    }
+    .comment-outer .comment-inner .comments .comment .comment-head p i {
+        font-size: 14px;
+    }
+    .comment-outer .comment-inner .comments .comment small {
+        font-size: 11px;
+    }
+    .comment-outer .comment-inner .comments .comment small sup {
+        font-size: 7px;
+    }
+    .comment-outer .comment-inner .comment-form button,
+    .comment-outer .comment-inner .foot #send-comment {
+        font-size: 16px;
+    }
+    /* QUOTE */
+    section.quote {
+        padding: 0;
+    }
+    section.quote .inner {
+        padding: 0px 20px;
+    }
+    section.quote .inner p.text-01,
+    section.quote .inner p.text-02 {
+        font-size: 16px;
+        line-height: 16px;
+    }
+    section.quote .inner p.text-02 {
+        font-size: 14px;
+        line-height: 14px;
+        letter-spacing: 1px;
+    }
+    /* FOOTNOTE */
+    section.footnote .inner p {
+        font-size: 16px;
+    }
+    .footer-date {
+        color: var(--wood-clr);
+        font-weight: 900;
+    }
+    section.footnote .inner p sup {
+        font-size: 8px;
+    }
+    section.footnote .inner h1 {
+        font-size: 28px;
+        line-height: 30px;
+        margin: 0px;
+        color: var(--wood-clr) !important;
+        font-weight: 900;
+    }
+    /* Wrapper */
+    .quote-wrapper {
+        background-position: -40 0;
+        background-size: 120% 100%;
+        padding-bottom: 120px;
+    }
+}
+
+/* =====================================
+    Minimum Phone Screen
+    315px x 640px
+   =====================================*/
+
+@media only screen and (max-width: 315px) {
+    .protocol .inner .body .picture div.covid {
+        background-color: rgba(0, 0, 0, 0);
+        width: 80px;
+        height: 77.5px;
+        border-radius: 10px;
+        padding: 5px 8px 18px 8px;
+        font-size: 10px;
+        line-height: 9px;
+    }
+
+    .protocol .inner .body .picture div.covid-1 {
+        bottom: 80px;
+        left: 1%;
+        padding: 5px 2px 42px 2px;
+        z-index: 1;
+    }
+
+    .protocol .inner .body .picture div.covid-1 img {
+        width: 80%;
+    }
+
+    .protocol .inner .body .picture div.covid-2 {
+        bottom: 80px;
+        left: 26%;
+        padding: 5px 5px 40px 5px;
+        z-index: 1;
+    }
+
+    .protocol .inner .body .picture div.covid-2 img {
+        width: 58%;
+    }
+
+    .protocol .inner .body .picture div.covid-3 {
+        bottom: 80px;
+        left: 51%;
+        padding: 2px 1px 40px 1px;
+        z-index: 1;
+    }
+
+    .protocol .inner .body .picture div.covid-3 img {
+        width: 87%;
+    }
+
+    .protocol .inner .body .picture div.covid-4 {
+        bottom: 80px;
+        left: 76%;
+        padding: 5px 12px 45px 12px;
+        z-index: 1;
+    }
+}
