@@ -30,7 +30,62 @@ html {
 body font {
     font-family: inherit;
 }
+body{
+  font-family: Arial, Sans;
+  margin: 0;
+}
 
+.overlay {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: #222;
+    opacity: 0;
+}
+
+.overlay.show {
+    opacity: 0.7;  
+    z-index: 999;  
+}
+
+.overlay__inner {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.overlay__content {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.spinner {
+    width: 75px;
+    height: 75px;
+    display: inline-block;
+    border-width: 2px;
+    border-color: rgba(255, 255, 255, 0.05);
+    border-top-color: #fff;
+    animation: spin 1s infinite linear;
+    border-radius: 100%;
+    border-style: solid;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.red {
+    color: red !important;
+}
 .no-padding {
     padding: 0 !important;
 }
@@ -367,12 +422,12 @@ section.bridegroom .bridegroom-inner {
     justify-content: center;
     flex-direction: column;
     padding: 20px;
-/*
+
     position: relative;
     background-image: var(--bg-cover-bride-groom);
     background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;*/
+    background-repeat: no-repeat;
 }
 /* HEAD */
 section.bridegroom .bridegroom-inner .head {
@@ -1480,7 +1535,9 @@ section.footnote .inner h1 {
     section.footnote .inner p sup {
         font-size: 10px;
     }
-
+    .credit {
+        margin-top: 5%;
+    }
 }
 
 /* =====================================
@@ -1757,6 +1814,9 @@ section.footnote .inner h1 {
     .modal-video-close-btn {
         top: -150px !important;
         right: 5px !important;
+    }
+    .credit {
+        margin-top: 8%;
     }
 }
 /* =====================================
@@ -2185,6 +2245,14 @@ section.footnote .inner h1 {
     section.quote .inner {
         padding: 0px 20px;
     }
+    section.footnote .inner p {
+        font-size: 16px;
+        color: var(--wood-clr);
+    }
+    section.footnote .inner .quote-name {
+        font-size: 12px;
+        color: var(--wood-clr);
+    }
     section.quote .inner p.text-01,
     section.quote .inner p.text-02 {
         font-size: 20px;
@@ -2240,6 +2308,9 @@ section.footnote .inner h1 {
         top: 60%;
         left: 77%;
         padding: 13px 14px 46px 14px;
+    }
+    .credit {
+        margin-top: 10%;
     }
 }
 
@@ -2624,7 +2695,12 @@ section.footnote .inner h1 {
     }
     /* FOOTNOTE */
     section.footnote .inner p {
-        font-size: 16px;
+        font-size: 12px;
+        color: var(--wood-clr);
+    }
+    section.footnote .inner .quote-name {
+        font-size: 10px;
+        color: var(--wood-clr);
     }
     .footer-date {
         color: var(--wood-clr);

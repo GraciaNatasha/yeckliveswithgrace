@@ -99,15 +99,17 @@ $('img').on('dragstart', function(e){
 /*  ==============================
         CALLING
 ============================== */
+
 function sendComment(data) {
+    $("div.overlay").addClass("show");
     var settings = {
       "async": true,
       "crossDomain": true,
-      "url": "https://yeckliveswithgrace-e700.restdb.io/rest/comments",
+      "url": "https://yeckliveswithgrace-8306.restdb.io/rest/wishes",
       "method": "POST",
       "headers": {
         "content-type": "application/json",
-        "x-apikey": "636be4cac890f30a8fd1f2a0",
+        "x-apikey": "65240b6f688854a7680c03cf",
         "cache-control": "no-cache"
       },
       "processData": false,
@@ -116,7 +118,46 @@ function sendComment(data) {
 
     $.ajax(settings).done(function (response) {
         $('#send-comment').text('Send');
+        $("div.overlay").removeClass("show");
         showAlert('Successfully Submitted', 'success');
+        getComments();
+    });
+}
+
+function getComments() {
+    var settings = {
+      "async": false,
+      "crossDomain": true,
+      "url": "https://yeckliveswithgrace-8306.restdb.io/rest/wishes",
+      "method": "GET",
+      "headers": {
+        "content-type": "application/json",
+        "x-apikey": "65240b6f688854a7680c03cf",
+        "cache-control": "no-cache"
+      }
+    }
+
+    $.ajax(settings).done(function (response) {
+        $('#name').val('');
+        $('#wishes').val('');
+        $("input[name='attend_attend']:checked").prop("checked", false);
+        $("input[name='guests_guests']:checked").prop("checked", false);
+        $('.comment').each(function(){
+            $(this).remove();
+        });
+      for (idx in response) {
+        comment = response[idx];
+        jsDate = new Date(comment.date);
+        options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+        $('section.comment-outer .comments')
+        .append('<div class="comment aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000"><div class="comment-head"><p><strong>' 
+            + comment.name 
+            + '</strong></p></div><div class="comment-body"><p>' 
+            + comment.wishes 
+            + '</p></div><div class="comment-foot"><small>' 
+            + jsDate.toLocaleDateString("en-US", options) 
+            + '</small></div></div>');
+    }
     });
 }
 
@@ -159,22 +200,16 @@ function sendComment(data) {
         WEDDING WISH
 ============================== */
 $(document).ready(function(){
-    comments = [
-//      {"name": "", "comment":"", "date": "Min, 11 Des 2022 "},
-        ];
-    for (idx in comments) {
-        comment = comments[idx];
-        $('section.comment-outer .comments').append('<div class="comment aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000"><div class="comment-head"><p><strong>' + comment.name + '</strong> <i class="fas fa-check"></i></p></div><div class="comment-body"><p>' + comment.comment + '</p></div><div class="comment-foot"><small>' + comment.date + '</small></div></div>');
-    }
+    getComments();
 });
 
 $('#send-comment').click(function(e){
     e.preventDefault();
     var data = {};
     var isValid = true;
-    $('.form-control').each(function(idx, value){
+    $('.form-data').each(function(idx, value){
         var names = value.name.split('_');
-        if (value.value == "" || value.value == null) {
+        if ((names == "name" || names == "wishes") && (value.value == "" || value.value == null)) {
             showAlert(names[1] + ' should be filled', 'error');
             isValid = false;
             return false;

@@ -110,17 +110,17 @@ body.cfg-special {
     /* BACKGROUND IMAGE */
     --bg-knot: url("../images/bg-knot.jpg");
     --bg-knot-mobile: url("../images/bg-knot-mobile.jpg");
-    --bg-cover: url("../images/bg-cover.png");
-    --bg-cover-mobile: url("../images/bg-cover-mobile.png");
-    --bg-cover-bride-groom: url("../images/bg-cover-bride-groom.png");
+    --bg-cover: url("../images/bg-cover.jpg");
+    --bg-cover-mobile: url("../images/bg-cover-mobile.jpg");
+    --bg-cover-bride-groom: url("../images/bg-cover-bride-groom.jpg");
 
     --bg-general: url("../images/background-1.png");
-    --bg-opening: url("../images/bg-opening.png");
-    --bg-opening-mobile: url("../images/bg-opening-mobile.png");
-    --bg-countdown: url("../images/bg-count.png");
+    --bg-opening: url("../images/bg-opening.jpg");
+    --bg-opening-mobile: url("../images/bg-opening-mobile.jpg");
+    --bg-countdown: url("../images/bg-count.jpg");
     --bg-groom: url("../images/bg-groom.png");
     --bg-bride: url("../images/bg-bride.png");
-    --bg-footer: url("../images/footer.png");
+    --bg-footer: url("../images/footer.jpg");
     --bg-footer-overlay: url("../images/overlay.png");
 }
 
