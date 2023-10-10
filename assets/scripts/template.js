@@ -493,11 +493,11 @@ var getUrlParameter = function getUrlParameter(sParam) {
 // data
 var galleryImages = [
 //BALI
-{'id':'1LkXsV1zKDHotgtCK986JtRNk3DVkYXxK', 'name':'D421920'},
-{'id':'1LkXsV1zKDHotgtCK986JtRNk3DVkYXxK', 'name':'D461920'},
-{'id':'1LkXsV1zKDHotgtCK986JtRNk3DVkYXxK', 'name':'D681920'},
-{'id':'1LkXsV1zKDHotgtCK986JtRNk3DVkYXxK', 'name':'D1141920'},
-{'id':'1LkXsV1zKDHotgtCK986JtRNk3DVkYXxK', 'name':'D1271920'},
+{'id':'1NCoF_z1p3RIFVGNPMA1At8Jy00V7WfdB', 'name':'D421920'},
+{'id':'1vyM-SfoiLmFvZ598u2XiA6LJL8tVzLn4', 'name':'D461920'},
+{'id':'1-iOP8rWMzFwqVrUVKRKClP5XmBV_fOV6', 'name':'D681920'},
+{'id':'136V-CijTKcmeMrzcJhGniKekO1NCrzAS', 'name':'D1141920'},
+{'id':'1GIymXdehs7waDfoWCTRdO6tIKEpuoHXW', 'name':'D1271920'},
 //DRONE
 {'id':'1p5ub_C8qZUJEs5I52byk8kKKaJZ1KU54', 'name':'DJI_0595'},
 //PINK

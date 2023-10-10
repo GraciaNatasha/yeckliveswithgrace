@@ -43,9 +43,11 @@ body{
     position: fixed;
     background: #222;
     opacity: 0;
+    display: none;
 }
 
 .overlay.show {
+    display:block;
     opacity: 0.7;  
     z-index: 999;  
 }
