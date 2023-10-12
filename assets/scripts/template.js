@@ -82,13 +82,25 @@ $(document).on('click', '.copy-account', function(e){
 });
 
 // ---------- Wedding gift ---------------------------------------------------------------------------
+giftOpened = false;
 $('#gift-btn').on('click', function(e){
     e.preventDefault();
-    $('#gift-form').show();
-    $('#gift-form').removeClass('aos-animate');
-    setTimeout(function() {
+    if (!giftOpened) {
+        $('#gift-form').show();
+        $('#gift-form').removeClass('aos-animate');
+        setTimeout(function() {
+            $('#gift-form').addClass('aos-animate');
+        }, 400);
+        giftOpened = true;
+    } else {
+        $('#gift-form').hide();
         $('#gift-form').addClass('aos-animate');
-    }, 400);
+        setTimeout(function() {
+            $('#gift-form').removeClass('aos-animate');
+        }, 400);
+        giftOpened = false;
+    }
+    
 });
 
 // ---------- Disabled Dragging an image [ON DRAGSTART] -----------------------------------------------

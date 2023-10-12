@@ -145,7 +145,7 @@
                         <div class="address">
                             <p data-aos="fade-up" data-aos-duration="1000" data-aos-once="false" class="aos-init">09.00 WIB</p>
                         </div>
-                        <div data-aos="fade-up" data-aos-duration="1000" data-aos-once="false" data-aos-delay="900" class="aos-init aos-animate"><a href="https://goo.gl/maps/jmUPfFkQ92GQTmT19" class="link" target="_blank">Get Direction</a></div>
+                        <div data-aos="fade-up" data-aos-duration="1000" data-aos-once="false" data-aos-delay="900" class="aos-init aos-animate"><a href="https://goo.gl/maps/jmUPfFkQ92GQTmT19" class="link" target="_blank">Map Direction</a></div>
                     </div>
                     <div class="activity">
                         <div class="title">
@@ -156,7 +156,7 @@
                         <div class="address">
                             <p data-aos="fade-up" data-aos-duration="1000" data-aos-once="false" class="aos-init">12.00 WIB</p>
                         </div>
-                        <div data-aos="fade-up" data-aos-duration="1000" data-aos-once="false" data-aos-delay="900" class="aos-init aos-animate"><a href="https://goo.gl/maps/vHDAPE1a5jLdSDa26" class="link" target="_blank">Get Direction</a></div>
+                        <div data-aos="fade-up" data-aos-duration="1000" data-aos-once="false" data-aos-delay="900" class="aos-init aos-animate"><a href="https://goo.gl/maps/vHDAPE1a5jLdSDa26" class="link" target="_blank">Map Direction</a></div>
                     </div>
                     <div class="activity">
                         <div class="title">
@@ -167,7 +167,7 @@
                         <div class="address">
                             <p data-aos="fade-up" data-aos-duration="1000" class="aos-init" data-aos-once="false">18.30 WIB</p>
                         </div>
-                        <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="900" class="aos-init aos-animate" data-aos-once="false"><a href="https://goo.gl/maps/6GPdEUp3AH1mxVPr9" class="link" target="_blank">Get Direction</a></div>
+                        <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="900" class="aos-init aos-animate" data-aos-once="false"><a href="https://goo.gl/maps/6GPdEUp3AH1mxVPr9" class="link" target="_blank">Map Direction</a></div>
                     </div>
                 </div>
             </div>
@@ -222,16 +222,16 @@
         <div class="timeline">
             <div class="story">
                 <div class="picture">
-                    <img data-aos="zoom-in" data-aos-duration="1000" src="./assets/images/first.jpg" alt="Our Journey" class="aos-init">
+                    <img data-aos="zoom-in" data-aos-duration="1000" src="./assets/images/first.png" alt="Our Journey" class="aos-init">
                 </div>
                 <div class="picture">
-                    <img data-aos="zoom-in" data-aos-duration="1000" src="./assets/images/fallin.jpg" alt="Our Journey" class="aos-init">
+                    <img data-aos="zoom-in" data-aos-duration="1000" src="./assets/images/fallin.png" alt="Our Journey" class="aos-init">
                 </div>
                 <div class="picture">
-                    <img data-aos="zoom-in" data-aos-duration="1000" src="./assets/images/dating.jpg" alt="Our Journey" class="aos-init">
+                    <img data-aos="zoom-in" data-aos-duration="1000" src="./assets/images/dating.png" alt="Our Journey" class="aos-init">
                 </div>
                 <div class="picture">
-                    <img data-aos="zoom-in" data-aos-duration="1000" src="./assets/images/propose.jpg" alt="Our Journey" class="aos-init">
+                    <img data-aos="zoom-in" data-aos-duration="1000" src="./assets/images/proposal.png" alt="Our Journey" class="aos-init">
                 </div>
             </div>
             <div style="clear: both;"></div>
@@ -264,12 +264,9 @@
     <div class="gift-inner">
         <div class="gift-title">
             <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-once="false" class="aos-init">Wedding Gift</h1>
-            <p data-aos="zoom-in-down" data-aos-duration="1000" data-aos-once="false" class="aos-init">
-                For family and friends who would like to send a gift. We would be glad to receive it.
-                Tap the following buttons to send them to us:
-            </p>
-            <br/>
-            <button id="gift-btn">Send Gift</button>
+            <div id="gift-btn">
+                <img src="./assets/images/gift.png" id="gift-img">
+            </div>
         </div>
         <form action="post" id="gift-form" class="gift-form aos-init" enctype="multipart/form-data" data-aos="fade-down" data-aos-duration="1000" data-aos-once="false" >
             <!-- DETAILS -->
@@ -341,6 +338,7 @@
                     <label class="form-label" for="guest_2">2</label><br>
                 </div>
             </div>
+            <span class="red" style="font-size: 0.8em;">* should be filled</span>
             <div class="foot aos-init" data-aos="fade-up" data-aos-duration="1000" data-aos-once="false" >
                 <button id="send-comment" data-last-comment="6923">Send</button>
             </div>

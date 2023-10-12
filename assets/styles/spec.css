@@ -1207,23 +1207,18 @@ section.gift .bank-detail .saving-books .book span {
 }
 
 #gift-btn {
-    border: 1px solid var(--btn-pink-clr);
-    background-color: var(--btn-pink-clr);
     color: var(--font-clr);
-    padding: 7px 18px;
-    text-decoration: none;
-    border-radius: 7px;
-    font-size: 32px;
-    line-height: 28px;
     margin: 15px auto;
     display: inline-block;
     transition: all 0.2s ease-in-out;
 }
 
 #gift-btn:hover {
-    background-color: var(--btn-pink-shadow-clr);
-    color: var(--font-clr);
-    padding: 7px 18px;
+    opacity: 0,5;
+}
+
+#gift-img {
+    width: 25%;
 }
 
 #gift-form p,
