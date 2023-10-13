@@ -491,7 +491,7 @@ section.bridegroom .bridegroom-inner .head .text-01 {
 .bridegroom .bridegroom-inner .body .bridegroom-border .bridegroom-picture {
     width: 358px;
     height: 464px;
-    object-fit: cover;
+    object-fit: scale-down;
     object-position: center;
     border-top-left-radius: 200px;
     border-top-right-radius: 200px;
@@ -2119,14 +2119,6 @@ section.footnote .inner h1 {
     }
     #gift-form label.center {
         font-size: 20px;
-    }
-
-    #gift-btn {
-        border: 1px solid var(--btn-pink-clr);
-        color: var(--primary-clr);
-        padding: 6px 12px;
-        font-size: 20px;
-        line-height: 22px;
     }
 
     /* Event */

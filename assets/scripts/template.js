@@ -518,11 +518,6 @@ var galleryImages = [
 {'id':'1WEdkmJUFzqkM40gRGxBbNCj7-6ngVe3D', 'name':'IMG_3545'},
 {'id':'1DvmnGsiP__kq13TFNxOAUQZ2XvRuCcks', 'name':'IMG_3486'},
 {'id':'1Kl3kQzpjKF9RXWqKpvifYPTQkRKhuN4L', 'name':'IMG_3554'},
-//FIREWORK
-{'id':'1JxW9uJWaB4RBhGuk-ln7CoIt0nFPhIcz', 'name':'IMG_3269'},
-{'id':'1tVNVQZQtppAWjaHKOaYs0niwR0XBIJuX', 'name':'IMG_3258'},
-{'id':'1VVBSOADPV_k0OJGUpq0CDs1C0z5cOuBb', 'name':'IMG_3156'},
-{'id':'1Leo79J9fbkCWNxd4HLEf4h4nusXG1U0O', 'name':'IMG_3137'},
 //RED
 {'id':'1mpm6m9bVgjXcdPZqBVGRxlDAF775pGog', 'name':'IMG_3945'},
 {'id':'1fC5Zebhe8qtkeJQkK5fIO-L-PEVRBaIH', 'name':'IMG_3942'},
@@ -530,6 +525,15 @@ var galleryImages = [
 {'id':'1hXqx2iB22GEqg6akluqOJW-qX5oyqQ-N', 'name':'IMG_3854'},
 {'id':'1pQCFPLwmOP_Pci-5ef3aMMp7IcURXRz4', 'name':'IMG_3887'},
 {'id':'1OUNQVaYQsLVtb45G-UL9O_V7att_6Va4', 'name':'IMG_3846'},
+//FIREWORK
+{'id':'1JxW9uJWaB4RBhGuk-ln7CoIt0nFPhIcz', 'name':'IMG_3269'},
+{'id':'1tVNVQZQtppAWjaHKOaYs0niwR0XBIJuX', 'name':'IMG_3258'},
+{'id':'1VVBSOADPV_k0OJGUpq0CDs1C0z5cOuBb', 'name':'IMG_3156'},
+{'id':'1Leo79J9fbkCWNxd4HLEf4h4nusXG1U0O', 'name':'IMG_3137'},
+//NIGHT
+{'id':'1lsNoHIvrvfDPSlqJpljAKfjdf8UH5UCm', 'name':'IMG_2946'},
+{'id':'1e2EC7bhkrIk7plr8K9UVkeOaYdsamsf2', 'name':'IMG_2973'},
+{'id':'1Lv_DvIfWvif19mBUoImeQgihyM9IhYDk', 'name':'IMG_3035'},
 ];
 initImage(0);
 
