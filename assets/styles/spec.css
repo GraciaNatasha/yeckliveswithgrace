@@ -491,7 +491,7 @@ section.bridegroom .bridegroom-inner .head .text-01 {
 .bridegroom .bridegroom-inner .body .bridegroom-border .bridegroom-picture {
     width: 358px;
     height: 464px;
-    object-fit: scale-down;
+    object-fit: cover;
     object-position: center;
     border-top-left-radius: 200px;
     border-top-right-radius: 200px;
