@@ -131,8 +131,13 @@ function sendComment(data) {
     $.ajax(settings).done(function (response) {
         $('#send-comment').text('Send');
         $("div.overlay").removeClass("show");
-        showAlert('Successfully Submitted', 'success');
         getComments();
+        showAlert('Successfully Submitted', 'success');
+    }).fail(function (jqXHR, textStatus, errorThrown) {
+        // Handle the error
+        $('#send-comment').text('Send');
+        $("div.overlay").removeClass("show");
+        showAlert('Error: ' + errorThrown, 'error');
     });
 }
 
@@ -157,19 +162,21 @@ function getComments() {
         $('.comment').each(function(){
             $(this).remove();
         });
-      for (idx in response) {
-        comment = response[idx];
-        jsDate = new Date(comment.date);
-        options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
-        $('section.comment-outer .comments')
-        .append('<div class="comment aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000"><div class="comment-head"><p><strong>' 
-            + comment.name 
-            + '</strong></p></div><div class="comment-body"><p>' 
-            + comment.wishes 
-            + '</p></div><div class="comment-foot"><small>' 
-            + jsDate.toLocaleDateString("en-US", options) 
-            + '</small></div></div>');
-    }
+        for (idx in response) {
+            comment = response[idx];
+            if (comment.wishes != null && comment.wishes != "") {
+                jsDate = new Date(comment.date);
+                options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+                $('section.comment-outer .comments')
+                .append('<div class="comment aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000"><div class="comment-head"><p><strong>' 
+                    + comment.name 
+                    + '</strong></p></div><div class="comment-body"><p>' 
+                    + comment.wishes 
+                    + '</p></div><div class="comment-foot"><small>' 
+                    + jsDate.toLocaleDateString("en-US", options) 
+                    + '</small></div></div>');
+            }
+        }
     });
 }
 
@@ -221,13 +228,14 @@ $('#send-comment').click(function(e){
     var isValid = true;
     $('.form-data').each(function(idx, value){
         var names = value.name.split('_');
-        if ((names == "name" || names == "wishes") && (value.value == "" || value.value == null)) {
+        if ((names[0] == "name") && (value.value == "" || value.value == null)) {
             showAlert(names[1] + ' should be filled', 'error');
             isValid = false;
             return false;
-        }
+        }   
         data[names[0]] = value.value;
     });
+    data['url_name'] = getUrlParameter('name');
     if (isValid) {
         data['date'] = Date();
         $('#send-comment').text('Sending');

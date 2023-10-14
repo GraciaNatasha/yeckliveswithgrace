@@ -110,7 +110,7 @@
                     <img src="./assets/images/groom.jpg" alt="" class="bridegroom-picture aos-init" data-aos="fade-left" data-aos-delay="300" data-aos-duration="1000" data-aos-once="false">
                 </div>
                 <div class="bridegroom-details">
-                	<h1 class="title-01 aos-init" data-aos="fade-down" data-aos-duration="1000" data-aos-once="false">Yeckli Lien, S. Kom</h1>
+                    <h1 class="title-01 aos-init" data-aos="fade-down" data-aos-duration="1000" data-aos-once="false">Yeckli Lien, S. Kom</h1>
                     <p class="text-01 aos-init" data-aos="fade-up" data-aos-duration="1000" data-aos-once="false">Putra Pertama, Anak ke-2 dari</p>
                     <p class="text-02 aos-init" data-aos="fade-up" data-aos-duration="1000" data-aos-once="false">Tn. Ariyanto<br/>&<br/>Ny. Mariana Elly</p>
                     <a href="https://www.instagram.com/yecklilien" target="_blank" class="link-01 aos-init" data-aos="fade-up" data-aos-duration="1000" data-aos-once="false"><i class="fab fa-instagram"></i> @yecklilien</a>
@@ -313,12 +313,8 @@
                 <p class="form-label center">Please kindly help us prepare everything better by confirming your attendance to our wedding event with the following RSVP form:</p>
             </div>
             <div class="form-group">
-                <label class="form-label">Name </label><span class="red">*</span>
+                <label class="form-label">Name </label>
                 <input class="form-control form-data" id="name" type="text" name="name_name" required="" />
-            </div>
-            <div class="form-group">
-                <label class="form-label">Wishes </label><span class="red">*</span>
-                <textarea class="form-control form-data" id="wishes" name="wishes_wishes" required=""></textarea>
             </div>
             <div class="form-group">
                 <label class="form-label">Will You Attend?</label><br>
@@ -338,7 +334,10 @@
                     <label class="form-label" for="guest_2">2</label><br>
                 </div>
             </div>
-            <span class="red" style="font-size: 0.8em;">* should be filled</span>
+            <div class="form-group">
+                <label class="form-label">Wishes </label><span></span>
+                <textarea class="form-control form-data" id="wishes" name="wishes_wishes" required=""></textarea>
+            </div>
             <div class="foot aos-init" data-aos="fade-up" data-aos-duration="1000" data-aos-once="false" >
                 <button id="send-comment" data-last-comment="6923">Send</button>
             </div>
