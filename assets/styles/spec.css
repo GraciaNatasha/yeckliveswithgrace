@@ -731,6 +731,7 @@ body.toska section.save-date .inner .foot .link-01:hover {
     max-width: 100%;
     border-radius: 22px;
     overflow: hidden;
+    height: auto !important;
 }
 .love-story .inner .timeline .story .picture img {
     width: 100%;
@@ -740,6 +741,7 @@ body.toska section.save-date .inner .foot .link-01:hover {
     display: block;
     margin: 0 auto;
     border-radius: 22px;
+    height: auto !important;
 }
 .love-story .inner .timeline .story:nth-of-type(1) .picture img {
     object-position: top;
