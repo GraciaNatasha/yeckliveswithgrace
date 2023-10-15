@@ -1625,7 +1625,7 @@ section.footnote .inner h1 {
         text-align: right;
     }
     .love-story .inner .timeline .story .picture {
-        height: 450px;
+        width: 450px;
         position: relative;
         z-index: 1;
     }
@@ -2043,7 +2043,7 @@ section.footnote .inner h1 {
         margin-bottom: 10px;
     }
     .love-story .inner .timeline .story .picture {
-        height: 320px;
+        width: 320px;
     }
     .love-story .inner .timeline .story .content .content-inner {
         padding: 130px 20px 30px 20px;
@@ -2368,7 +2368,7 @@ section.footnote .inner h1 {
         background-color: rgba(0, 0, 0, 0.6);
     }
     .love-story .inner .timeline .story .picture {
-        height: 280px;
+        width: 280px;
     }
 }
 
@@ -2506,7 +2506,7 @@ section.footnote .inner h1 {
         margin-bottom: 10px;
     }
     .love-story .inner .timeline .story .picture {
-        height: 250px;
+        width: 250px;
     }
     .love-story .inner .timeline .story .content .content-inner {
         padding: 130px 20px 30px 20px;
