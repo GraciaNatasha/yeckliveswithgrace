@@ -164,6 +164,7 @@ function getComments() {
         });
         for (idx in response) {
             comment = response[idx];
+            console.log(comment);
             if (comment.wishes != null && comment.wishes != "") {
                 jsDate = new Date(comment.date);
                 options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
@@ -530,6 +531,11 @@ var galleryImages = [
 {'id':'1hXqx2iB22GEqg6akluqOJW-qX5oyqQ-N', 'name':'IMG_3854'},
 {'id':'1pQCFPLwmOP_Pci-5ef3aMMp7IcURXRz4', 'name':'IMG_3887'},
 {'id':'1OUNQVaYQsLVtb45G-UL9O_V7att_6Va4', 'name':'IMG_3846'},
+//ROOM
+{'id':'1CvT3_ORimq75XY2B8aDtLFhhVvdr05Sb', 'name':'IMG2692'},
+{'id':'1E-TmfmWFjgQwbUJiaMnKJBrmWwOcDESk', 'name':'IMG2720'},
+{'id':'1F2LS-hQvlAV-Y8WmjYCvvs32QggGNStB', 'name':'IMG2775'},
+{'id':'1ozMrAS6qVl4c1ydJY748bQfjVUrLV1op', 'name':'IMG2827'},
 //WHITE
 {'id':'1l6wMsQZvaCT4I02vDg53zth-nhTMCqdW', 'name':'IMG3588'},
 {'id':'1Qix4QytIjMmqlYiRFa3C5qZTwcUoMZBv', 'name':'IMG3626'},
