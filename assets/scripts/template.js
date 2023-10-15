@@ -236,6 +236,14 @@ $('#send-comment').click(function(e){
         }   
         data[names[0]] = value.value;
     });
+    if (document.querySelector('input[name="attend_attend"]:checked')) {
+        data['attend'] = document.querySelector('input[name="attend_attend"]:checked').value;    
+    }
+    
+    if (document.querySelector('input[name="guests_guests"]:checked') != null) {
+        data['guests'] = document.querySelector('input[name="guests_guests"]:checked').value;    
+    }
+    
     data['url_name'] = getUrlParameter('name');
     if (isValid) {
         data['date'] = Date();
