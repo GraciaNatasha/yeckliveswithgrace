@@ -164,7 +164,6 @@ function getComments() {
         });
         for (idx in response) {
             comment = response[idx];
-            console.log(comment);
             if (comment.wishes != null && comment.wishes != "") {
                 jsDate = new Date(comment.date);
                 options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
