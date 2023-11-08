@@ -145,7 +145,7 @@ function getComments() {
     var settings = {
       "async": false,
       "crossDomain": true,
-      "url": "https://yeckliveswithgrace-8306.restdb.io/rest/wishes",
+      "url": 'https://yeckliveswithgrace-8306.restdb.io/rest/wishes?q={}&h={"$orderby": {"date": -1}}',
       "method": "GET",
       "headers": {
         "content-type": "application/json",
@@ -172,9 +172,7 @@ function getComments() {
                     + comment.name 
                     + '</strong></p></div><div class="comment-body"><p>' 
                     + comment.wishes 
-                    + '</p></div><div class="comment-foot"><small>' 
-                    + jsDate.toLocaleDateString("en-US", options) 
-                    + '</small></div></div>');
+                    + '</p></div></div>');
             }
         }
     });
